@@ -26,11 +26,11 @@
 
 
                 <div class="card-body">
-                   <form method="post" action="{{url('/inserir')}}">
+                   <form method="post" action="{{url('/editar/'.$dado->id)}}">
                     @csrf
                         <div class="form-group">
                             <label>Nome</label>
-                            <input name="name" class="form-control">
+                            <input name="name" class="form-control"   value="{{old('name', $dado->name)}}">
                             
                         </div>
 
@@ -42,43 +42,43 @@
 
                            <div class="col">
                                 <label>CPF</label>
-                                <input class="form-control" type="number" step="any" name="cpf" required="required">
+                                <input class="form-control" type="number" step="any" name="cpf" required="required"  value="{{old('cpf', $dado->cpf)}}">
                             </div>
                         </div>    
 
                         <div class="form-row">
                             <div class="col">
                                 <label>CEP</label>
-                                <input class="form-control" type="text" step="any" name="cep" id="cep" required="required" onblur="pesquisacep(this.value);">
+                                <input class="form-control" type="number" step="any" name="cep" required="required"  value="{{old('cep', $dado->cep)}}" id="cep" onblur="pesquisacep(this.value);">
                             </div>
 
                             <div class="col">
                                 <label>Endereço</label>
-                                <input class="form-control" type="text" step="any" name="endereco" id="endereco" required="required">
+                                <input class="form-control" type="text" step="any" name="endereco" required="required" id="endereco"  value="{{old('endereco', $dado->endereco)}}">
                             </div>
                         </div>
 
                         <div class="form-row">
                             <div class="col">    
                                 <label>Número</label>
-                                <input class="form-control" type="text" step="any" name="numero" id="numero" required="required">
+                                <input class="form-control" type="text" step="any" name="numero" id="numero" required="required"  value="{{old('numero', $dado->numero)}}">
                             </div>
 
                             <div class="col">
                                 <label>Bairro</label>
-                                <input class="form-control" type="text" step="any" name="bairro" id="bairro" required="required">
+                                <input class="form-control" type="text" step="any" name="bairro" required="required"  value="{{old('bairro', $dado->bairro)}}">
                             </div>
                         </div>    
 
                         <div class="form-row">
                             <div class="col">    
                                 <label>Cidade</label>
-                                <input class="form-control" type="text" step="any" name="cidade" id="cidade" required="required">
+                                <input class="form-control" type="text" step="any" name="cidade" required="required" id="bairro"  value="{{old('cidade', $dado->cidade)}}">
                             </div>
 
                             <div class="col">
-                               <label>Estado</label>
-                                <select id="estado" name="estado" id="estado" class="form-control" required="required">
+                                <label>Estado</label>
+                                <select id="estado" name="estado" required="required" class="form-control"  value="{{old('estado', $dado->estado)}}">
                                     <option value="AC">Acre</option>
                                     <option value="AL">Alagoas</option>
                                     <option value="AP">Amapá</option>
@@ -113,7 +113,7 @@
 
                         <div class="form-group">
                             <label>Complemento</label>
-                            <input class="form-control" type="text" step="any" name="complemento">
+                            <input class="form-control" type="text" step="any" name="complemento" id="complemento"  value="{{old('complemento', $dado->complemento)}}">
                         </div>
                     
                          <button class="btn btn-block btn-primary">Salvar</button>
@@ -124,8 +124,5 @@
         </div>
     </div>
 </div>
-
-
-
 @endsection
 

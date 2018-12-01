@@ -11,10 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::post('/inserir', 'PessoaController@store');
+Route::get('/index', 'PessoaController@index');
+Route::delete('listar/delete/{id}', 'PessoaController@destroy');
+Route::get('/editar/{id}' , 'PessoaController@edit');
+Route::post('/editar/{id}' , 'PessoaController@edit');
+Route::post('/editar/{id}' , 'PessoaController@update');
