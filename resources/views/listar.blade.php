@@ -53,7 +53,7 @@
 				</tbody>
 			</table>
 			
-			{{ $all->appends(Request::except('page'))->render() }}
+			{{ $all->links() }}
 
 		</div>
 	</div>
